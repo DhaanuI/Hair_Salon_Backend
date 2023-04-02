@@ -12,7 +12,7 @@ const { dbconnetion } = require("./configs/db");
 const { GntRouter } = require("./routes/generateNewToken.route");
 const http = require("http");
 const { githublogin } = require("./routes/github.oauth.route");
-const passport = require("passport");
+const passPORT = require("passPORT");
 const { googlelogin } = require("./routes/google.oauth.route");
 const { AdminRouter } = require("./routes/admin.router");
 const { MaleRouter } = require("./routes/maleService.route");
@@ -63,11 +63,11 @@ app.use("/logout",authenticate,LogoutRouter);
 
 // --------------->>>>>>>> Server Running <<<<<<<<-------------------
 
-app.listen(process.env.port, async () => {
+app.listen(process.env.PORT, async () => {
   try {
     dbconnetion;
     console.log(`Connected to Database`);
-    console.log(`Server listening on ${process.env.port}`);
+    console.log(`Server listening on ${process.env.PORT}`);
   } catch (error) {
     console.log(`Error while connecting to ${error.message}`);
   }
