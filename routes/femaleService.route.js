@@ -1,29 +1,29 @@
 const express = require('express');
 
 // --------------->>>>>>>> Female Service Router <<<<<<<<-------------------
-const {  FemaleGetData, GetFemaleSingleData, FemalePostData, FemalePatchData, FemaleDeleteData } = require('../controllers/FemaleServiceController');
+const {  FemaleGetData, GetFemaleSingleData, FemalePostData, FemalePatchData, FemaleDeleteData } = require("../controllers/FemaleServiceController");
 
 const FemaleRouter = express.Router();
 
 
 // --->>>> GET <<<<<--- 
-FemaleRouter.get('/female', FemaleGetData);
+FemaleRouter.get("/female", FemaleGetData);
 
 
 // --->>>> GET <<<<<---  ||  --->>>> GetSingle Service <<<<<---
-FemaleRouter.get('/female/:id', GetFemaleSingleData);
+FemaleRouter.get("/female/:id", GetFemaleSingleData);
 
 // --->>>> POST <<<<<--- 
-FemaleRouter.post('/female/addFemaleService', FemalePostData);
+FemaleRouter.post("/female/addFemaleService", FemalePostData);
 
 
 // --->>>> PATCH <<<<<--- 
-FemaleRouter.patch('/female/update/:id', FemalePatchData);
+FemaleRouter.patch("/female/update/:id", FemalePatchData);
 
 
  
 // --->>>> DELETE <<<<<--- 
-FemaleRouter.delete('/female/delete/:id', FemaleDeleteData);
+FemaleRouter.delete("/female/delete/:id", FemaleDeleteData);
 
 
 module.exports = { FemaleRouter }
