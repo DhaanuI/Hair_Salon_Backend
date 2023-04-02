@@ -52,7 +52,7 @@ app.use(LogsData);
 app.use("/user", userRouter);
 app.use("/admin", AdminRouter)
 app.use("/services", MaleRouter);
-app.use("/services", FemaleRouter);
+app.use("/servicess", FemaleRouter);
 app.use("/stylist", StylistRouter)
 
 app.use("/appointments",appointmentRouter);
