@@ -10,7 +10,7 @@ const bcrypt = require("bcrypt");
 const { sendEmail } = require("../nodemailer/sendingEmails");
 googlelogin.use(
   session({
-    secret: process.env.access_key,
+    secret: process.env.ACCESSKEY,
     resave: false,
     saveUninitialized: true,
     cookie: { maxAge: 60000 },
@@ -41,8 +41,8 @@ function generateOtp() {
 passport.use(
   new GoogleStrategy(
     {
-      clientID: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      clientID: process.env.GOOGLECLIENTID,
+      clientSecret: process.env.GOOGLECLIENTSECRET,
       callbackURL: "https://defiant-lime-kangaroo.cyclic.app/auth/google/callback",
       scope : ["profile", "email"]
     },

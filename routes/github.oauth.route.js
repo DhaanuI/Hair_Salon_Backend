@@ -12,14 +12,14 @@ const nodemailer = require("nodemailer");
 
 //! post login route  given from github developer settings
 
-const GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID;
-const GITHUB_CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET;
+const GITHUB_CLIENT_ID = process.env.GOOGLECLIENTID;
+const GITHUB_CLIENT_SECRET = process.env.GOOGLECLIENTSECRET;
 
 // nessesary passport middlewares
 
 githublogin.use(
   session({
-    secret: process.env.access_key,
+    secret: process.env.ACCESSKEY,
     resave: false,
     saveUninitialized: true,
     cookie: { maxAge: 60000 },
@@ -109,5 +109,3 @@ githublogin.get(
 );
 
 module.exports = { githublogin };
-
-// sve and varify

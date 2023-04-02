@@ -53,8 +53,8 @@ exports.login = async (req, res) => {
                 sendEmail({email: email,subject:"Login OTP",body:` OTP is ${otp}` })
                 
                 // generate tokens 
-                const Normal_Token = jwt.sign({ userId: UserData._id }, process.env.Normal_Token_key, { expiresIn: "7d" })
-                const Refresh_Token = jwt.sign({ userId: UserData._id }, process.env.Refresh_Token_key, { expiresIn: "7d" })
+                const Normal_Token = jwt.sign({ userId: UserData._id }, process.env.NORMALKEY, { expiresIn: "7d" })
+                const Refresh_Token = jwt.sign({ userId: UserData._id }, process.env.REFRESHKEY, { expiresIn: "7d" })
 
                 // send token in cookies
                 res.cookie("Normal_Token", Normal_Token, { httpOnly: true })
@@ -75,7 +75,7 @@ exports.login = async (req, res) => {
 
 exports.getalluser = async (req, res) => {
     try {
-        if (req.body.access_key === process.env.access_key ) {
+        if (req.body.access_key === process.env.ACCESSKEY ) {
 
             const UserData = await UserModel.find();
             res.status(200).json({ UserData });
@@ -90,10 +90,11 @@ exports.getalluser = async (req, res) => {
         
     }
 }
+
 exports.getUser = async (req, res) => {
         const _id = req.params.id;
         try {
-            if (req.body.access_key === process.env.access_key ) {
+            if (req.body.access_key === process.env.ACCESSKEY ) {
                 const UserData = await UserModel.findOne({_id});
                 res.status(200).json({ UserData });
             }
@@ -107,22 +108,3 @@ exports.getUser = async (req, res) => {
             
         }
     }
-
-
-
-
-
-
-// function he(){
-
-//     bcrypt.compare("password", "$2b$05$Q0lP7ge0mc.WGKInJqYXz.bIvU67MkeG/zmLgXwo6e3nBgtWW3iJu", (err, result) => {
-//         if (result) {
-//             console.log(result);
-//         }
-//         else {
-//             console.log("nhi");
-//         }
-//     })
-// }
-
-// he()

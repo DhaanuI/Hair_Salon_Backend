@@ -10,7 +10,7 @@ GntRouter.get("/", (req, res) => {
 
   if (!refreshtoken) res.status(401).send({ Message: "Please Login Again" });
 
-  jwt.verify(refreshtoken, process.env.Refresh_Token_key, (err, decoded) => {
+  jwt.verify(refreshtoken, process.env.REFRESHKEY, (err, decoded) => {
     if (err) {
       res.status(401).send({ Message: "Contact to Administrator" });
     } else {
@@ -19,7 +19,7 @@ GntRouter.get("/", (req, res) => {
           UserId: decoded._id,
           UserRole: decoded.Role,
         },
-        process.env.Normal_Token_key,
+        process.env.NORMALKEY,
         {
           expiresIn: "7d",
         }
