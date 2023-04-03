@@ -6,7 +6,7 @@ const app = express();
 require("dotenv").config();
 
 
-const { dbconnetion } = require("./configs/db");
+const { dbconnetion } = require("./config/db");
 const { UserRouter } = require("./routes/user.route");
 const { authenticate } = require("./middlewares/authenticate.middleware");
 const { LogsData } = require("./middlewares/log.middleware");

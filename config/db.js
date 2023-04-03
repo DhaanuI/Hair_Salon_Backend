@@ -4,4 +4,5 @@ mongoose.set('strictQuery', true);
 
 const dbconnetion = mongoose.connect(process.env.MONGOURL)
 
-module.exports = {dbconnetion}
+
+module.exports = {dbconnetion} 
