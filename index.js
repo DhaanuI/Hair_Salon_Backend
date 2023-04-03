@@ -1,8 +1,9 @@
 const express = require("express");
-const redis = require("redis");
+// const redis = require("redis");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 
+const app = express();
 
 const { userRouter } = require("./routes/user.route");
 const { authenticate } = require("./middlewares/authenticate.middleware");
@@ -19,7 +20,6 @@ const { MaleRouter } = require("./routes/maleService.route");
 const { FemaleRouter } = require("./routes/FemaleServiceRouter");
 const { StylistRouter } = require("./routes/stylist.router");
 const {appointmentRouter} = require("./routes/appointment.router");
-const app = express();
 // const server = http.createServer(app);
 
 
@@ -38,7 +38,7 @@ app.use(express.json());
 
 // --------------->>>>>>>> Secret key for Express sessions <<<<<<<<-------------------
 
-app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
+// app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
 
 
 // --------------->>>>>>>> Oauth <<<<<<<<-------------------
