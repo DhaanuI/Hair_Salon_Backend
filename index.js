@@ -6,7 +6,7 @@ const cookieParser = require("cookie-parser");
 
 const { userRouter } = require("./routes/user.route");
 const { authenticate } = require("./middlewares/authenticate.middleware");
-const { LogsData } = require("./middlewares/log.middleware");
+// const { LogsData } = require("./middlewares/log.middleware");
 const { LogoutRouter } = require("./routes/logout.route");
 const { dbconnetion } = require("./config/db");
 const { GntRouter } = require("./routes/generateNewToken.route");
@@ -16,7 +16,7 @@ const passPORT = require("passport");
 const { googlelogin } = require("./routes/google.oauth.route");
 const { AdminRouter } = require("./routes/admin.router");
 const { MaleRouter } = require("./routes/maleService.route");
-const { FemaleRouter } = require("./routes/femaleService.route");
+const { FemaleRouter } = require("./routes/FemaleServiceRoter");
 const { StylistRouter } = require("./routes/stylist.router");
 const {appointmentRouter} = require("./routes/appointment.router");
 const app = express();
@@ -48,7 +48,7 @@ app.use("/", googlelogin);
 
 
 // --------------->>>>>>>> Routers <<<<<<<<-------------------
-app.use(LogsData);
+// app.use(LogsData);
 app.use("/user", userRouter);
 app.use("/admin", AdminRouter)
 app.use("/services", MaleRouter);
