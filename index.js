@@ -36,8 +36,8 @@ app.get("/", (req, res) => res.send(`<h1 style="text-align:Center;color:purple">
 app.use(LogsData);
 app.use("/user", UserRouter);
 app.use("/admin", AdminRouter)
-app.use("/services/m", MaleRouter);
-app.use("/services/f", FemaleRouter);
+app.use("/services", MaleRouter);
+app.use("/services", FemaleRouter);
 app.use("/stylist", StylistRouter);
 app.use("/appointments", AppointmentRouter);
 
