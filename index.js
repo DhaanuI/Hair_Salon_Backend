@@ -10,9 +10,9 @@ const { authenticate } = require("./middlewares/authenticate.middleware");
 const { LogoutRouter } = require("./routes/logout.route");
 const { dbconnetion } = require("./config/db");
 const { GntRouter } = require("./routes/generateNewToken.route");
-const http = require("http");
-const { githublogin } = require("./routes/github.oauth.route");
-const passPORT = require("passport");
+// const http = require("http");
+// const { githublogin } = require("./routes/github.oauth.route");
+// const passport = require("passport");
 const { googlelogin } = require("./routes/google.oauth.route");
 const { AdminRouter } = require("./routes/admin.router");
 const { MaleRouter } = require("./routes/maleService.route");
@@ -20,7 +20,7 @@ const { FemaleRouter } = require("./routes/FemaleServiceRoter");
 const { StylistRouter } = require("./routes/stylist.router");
 const {appointmentRouter} = require("./routes/appointment.router");
 const app = express();
-const server = http.createServer(app);
+// const server = http.createServer(app);
 
 
 // --------------->>>>>>>> Default End Point <<<<<<<<-------------------
@@ -65,7 +65,7 @@ app.use("/logout",authenticate,LogoutRouter);
 
 app.listen(process.env.PORT, async () => {
   try {
-    dbconnetion;
+    await dbconnetion;
     console.log(`Connected to Database`);
     console.log(`Server listening on ${process.env.PORT}`);
   } catch (error) {
