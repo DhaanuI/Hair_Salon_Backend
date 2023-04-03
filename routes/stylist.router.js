@@ -8,18 +8,18 @@ const StylistRouter = express.Router();
 
 
 // --------->>>> GET <<<<<---------
-StylistRouter.get("/styler", StylistGetData);
+StylistRouter.get('/styler', StylistGetData);
 
 
 // --------->>>> POST <<<<<--------- 
-StylistRouter.post("/styler/addStylistService", StylistPostData);
+StylistRouter.post('/styler/addStylistService', StylistPostData);
 
 
 // --------->>>> PATCH <<<<<---------
-StylistRouter.patch("/styler/update/:id", StylistPatchData);
+StylistRouter.patch('/styler/update/:id', StylistPatchData);
 
 
 // --------->>>> DELETE <<<<<---------
-StylistRouter.delete("/styler/delete/:id", StylistDeleteData);
+StylistRouter.delete('/styler/delete/:id', StylistDeleteData);
 
 module.exports = { StylistRouter }  
