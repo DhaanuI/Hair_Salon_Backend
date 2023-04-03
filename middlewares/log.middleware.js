@@ -1,5 +1,5 @@
 // --------->>>> Logs Model Location <<<<<---------
-const { LogModel } = require('../model/logModel');
+const { LogModel } = require("../model/logModel");
 
 
 const LogsData = async (req,res,next) => {

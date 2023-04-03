@@ -1,11 +1,13 @@
+const jwt = require ("jsonwebtoken");
+const bcrypt = require ("bcrypt");
+
 require("dotenv").config();
-const { UserModel } = require("../model/user.model");
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
+
+const { UserModel } = require ("../model/user.model");
 const { sendEmail } = require("../nodemailer/sendingEmails");
 
 
-exports.signup = async (req, res) => {
+const signup = async (req, res) => {
     try {
         const { name, email, password } = req.body;
         const isPresent = await UserModel.find({ email });
@@ -32,7 +34,7 @@ exports.signup = async (req, res) => {
     }
 }
 
-exports.login = async (req, res) => {
+const login = async (req, res) => {
     try {
         const { email, password } = req.body;
         const UserData = await UserModel.findOne({ email });
@@ -40,6 +42,7 @@ exports.login = async (req, res) => {
         if (!UserData) {
             res.status(404).json({ message: "user not found" });
         }
+
         // hash password form UserData(db.users)
         const hashPassword = UserData?.password;
         
@@ -73,7 +76,7 @@ exports.login = async (req, res) => {
  
 }
 
-exports.getalluser = async (req, res) => {
+const getalluser = async (req, res) => {
     try {
         if (req.body.access_key === process.env.ACCESSKEY ) {
 
@@ -90,7 +93,8 @@ exports.getalluser = async (req, res) => {
         
     }
 }
-exports.getUser = async (req, res) => {
+
+const getUser = async (req, res) => {
         const _id = req.params.id;
         try {
             if (req.body.access_key === process.env.ACCESSKEY ) {
@@ -106,4 +110,6 @@ exports.getUser = async (req, res) => {
             res.status(400).json({ message: error.message });
             
         }
-    }
+}
+
+module.exports = {signup ,login ,getalluser ,getUser}
