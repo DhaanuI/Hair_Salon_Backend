@@ -61,7 +61,7 @@ app.use("/newtoken", authenticate,GntRouter);
 app.use("/logout",authenticate,LogoutRouter);
 
 
-// --------------->>>>>>>> Server Running <<<<<<<<-------------------
+// --------------->>>>>>>> Server Running <<<<<<<<------------------- 
 
 app.listen(process.env.PORT, async () => {
   try {
