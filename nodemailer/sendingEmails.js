@@ -5,7 +5,6 @@ require("dotenv").config()
 
 
 async function sendEmail(data) {
-   //   transpoter to send/transport email
 
   const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
@@ -18,7 +17,7 @@ async function sendEmail(data) {
 
   transporter.sendMail({
     to: `${data.email}`,
-    from: 'amangnc644@gmail.com',
+    from: 'amanmandal644@gmail.com',
     subject: data.subject,
     html: data.body,
   })

@@ -90,7 +90,6 @@ exports.getalluser = async (req, res) => {
         
     }
 }
-
 exports.getUser = async (req, res) => {
         const _id = req.params.id;
         try {

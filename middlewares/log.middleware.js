@@ -5,7 +5,7 @@ const { LogModel } = require('../model/logModel');
 const LogsData = async (req,res,next) => {
     try {
         const data = new LogModel({
-            DateAndTime :`${new Date().toISOString()}`,
+            DateAndTime :`${new Date().toLocaleTimeString()}`,
             Method :`${req.method}`,
             URL :`${req.url}`,
             IP : `${req.ip}`
