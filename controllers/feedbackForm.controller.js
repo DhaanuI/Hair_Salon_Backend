@@ -1,6 +1,6 @@
 // --------------->>>>>>>> Feedback Model Location <<<<<<<<-------------------
 
-const { FeedbackModel } = require("../model/feedbackForm.mode");
+const { FeedbackModel } = require("../model/feedbackForm.model");
 
 
 // --------->>>> POST <<<<<---------
