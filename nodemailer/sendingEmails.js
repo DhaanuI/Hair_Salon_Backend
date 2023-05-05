@@ -16,8 +16,8 @@ const sendEmail = async (data) => {
   transporter.sendMail({
     to: `${data.email}`,
     from: 'snipsandspikeshairsalon@gmail.com',
-    subject: data.subject,
-    html: data.body,
+    subject: `${data.subject}`,
+    html: `${data.body}`,
   })
   .then(()=>console.log('mail sent successfully'))
   .catch((err)=>console.log("err",err))
