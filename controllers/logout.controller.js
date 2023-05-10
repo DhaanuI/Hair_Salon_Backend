@@ -1,5 +1,5 @@
-const fs = require("fs");
-const { blackListModel } = require("../models/blacklist.model");
+const { blackListModel } = require("../model/blacklist.model");
+
 
 const LogoutData =  async (req, res)=>{
     const Normal_Token = req.cookies.Normal_Token || "";
